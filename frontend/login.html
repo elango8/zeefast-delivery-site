@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ZeeFast</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Left Side - Illustration */
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #fc8019 0%, #ff6b35 50%, #e55d2b 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .left-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(34, 33, 33, 0.1);
+            border-radius: 50%;
+        }
+
+        .left-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .left-content .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .left-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .left-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .features-list {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Right Side - Form */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            background: white;
+        }
+
+        .form-container {
+            max-width: 450px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            background: #f5f5f5;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            color: white;
+        }
+
+        .form-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            color: #888;
+            margin-bottom: 35px;
+            font-size: 1rem;
+        }
+
+        .demo-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 25px;
+        }
+
+        .demo-box strong {
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .demo-box span {
+            color: #4caf50;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i.icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #bbb;
+        }
+
+        .input-wrapper i.toggle {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #bbb;
+            cursor: pointer;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 50px;
+            border: 2px solid #eee;
+            border-radius: 14px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #fc8019;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(252, 128, 25, 0.1);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .remember input {
+            width: 20px;
+            height: 20px;
+            accent-color: #fc8019;
+        }
+
+        .forgot {
+            color: #fc8019;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(252, 128, 25, 0.4);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            color: #bbb;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #eee;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .social-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-btn.google {
+            background: #ea4335;
+        }
+
+        .social-btn.facebook {
+            background: #1877f2;
+        }
+
+        .social-btn.apple {
+            background: #000;
+        }
+
+        .form-panel {
+            display: none;
+        }
+
+        .form-panel.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .left-panel {
+                display: none;
+            }
+
+            .right-panel {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left-panel">
+        <div class="left-content">
+            <div class="logo">🍕 ZeeFast</div>
+            <h2>Delicious Food, Delivered Fast</h2>
+            <p>Join thousands of food lovers who trust ZeeFast for their daily meals.</p>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <div>
+                        <strong>Lightning Fast Delivery</strong>
+                        <div style="opacity:0.8;font-size:0.9rem;">Get food in 35 mins or less</div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <strong>Safe & Hygienic</strong>
+                        <div style="opacity:0.8;font-size:0.9rem;">Contactless delivery options</div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-percent"></i></div>
+                    <div>
+                        <strong>Best Prices</strong>
+                        <div style="opacity:0.8;font-size:0.9rem;">Exclusive deals & offers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="form-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showForm('login')">Login</button>
+                <button class="tab" onclick="showForm('signup')">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-panel active" id="login-panel">
+                <h1 class="form-title">Welcome Back! 👋</h1>
+                <p class="form-subtitle">Enter your credentials to access your account</p>
+
+                <div class="demo-box">
+                    <strong>🎉 Demo Credentials</strong>
+                    <span>Email: demo@zeefast.com | Password: demo123</span>
+                </div>
+
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope icon"></i>
+                            <input type="email" class="form-input" id="loginEmail" placeholder="yourname@email.com"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock icon"></i>
+                            <input type="password" class="form-input" id="loginPassword" placeholder="••••••••"
+                                required>
+                            <i class="fas fa-eye toggle" onclick="togglePassword('loginPassword', this)"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember">
+                            <input type="checkbox" checked>
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+
+                <div class="divider">or continue with</div>
+
+                <div class="social-btns">
+                    <button class="social-btn google"><i class="fab fa-google"></i></button>
+                    <button class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-btn apple"><i class="fab fa-apple"></i></button>
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="form-panel" id="signup-panel">
+                <h1 class="form-title">Create Account ✨</h1>
+                <p class="form-subtitle">Join ZeeFast and start ordering delicious food</p>
+
+                <form onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user icon"></i>
+                            <input type="text" class="form-input" id="signupName" placeholder="John Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope icon"></i>
+                            <input type="email" class="form-input" id="signupEmail" placeholder="yourname@email.com"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock icon"></i>
+                            <input type="password" class="form-input" id="signupPassword" placeholder="••••••••"
+                                required>
+                            <i class="fas fa-eye toggle" onclick="togglePassword('signupPassword', this)"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-phone icon"></i>
+                            <input type="tel" class="form-input" id="signupPhone" placeholder="+91 9876543210">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </form>
+
+                <div class="divider">or sign up with</div>
+
+                <div class="social-btns">
+                    <button class="social-btn google"><i class="fab fa-google"></i></button>
+                    <button class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-btn apple"><i class="fab fa-apple"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showForm(form) {
+            const tabs = document.querySelectorAll('.tab');
+            const panels = document.querySelectorAll('.form-panel');
+
+            tabs.forEach(t => t.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+
+            if (form === 'login') {
+                tabs[0].classList.add('active');
+                document.getElementById('login-panel').classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('signup-panel').classList.add('active');
+            }
+        }
+
+        function togglePassword(inputId, icon) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Demo login
+            if (email === 'demo@zeefast.com' && password === 'demo123') {
+                localStorage.setItem('zeefast_user', JSON.stringify({
+                    name: 'Demo User',
+                    email: email,
+                    phone: '+91 9876543210'
+                }));
+                localStorage.setItem('zeefast_token', 'demo-token-12345');
+                window.location.href = 'restaurants.html';
+            } else {
+                alert('Invalid credentials. Use demo@zeefast.com / demo123');
+            }
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const phone = document.getElementById('signupPhone').value;
+
+            localStorage.setItem('zeefast_user', JSON.stringify({ name, email, phone }));
+            localStorage.setItem('zeefast_token', 'user-token-' + Date.now());
+            window.location.href = 'restaurants.html';
+        }
+    </script>
+</body>
+
+</html>

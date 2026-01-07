@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - ZeeFast</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .payment-page {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+
+        .order-summary {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .payment-options {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .payment-option:hover,
+        .payment-option.selected {
+            border-color: var(--primary);
+            background: #fff5eb;
+        }
+
+        .payment-option i {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .payment-option.selected .radio {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .payment-option.selected .radio::after {
+            content: "✓";
+            color: white;
+        }
+
+        .radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray-400);
+            border-radius: 50%;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .success-modal.active {
+            display: flex;
+        }
+
+        .success-content {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            max-width: 400px;
+            animation: scaleIn 0.3s ease;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 24px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .payment-page {
+                padding: 24px 16px;
+            }
+
+            .order-summary,
+            .payment-options {
+                padding: 16px;
+            }
+
+            .payment-option {
+                padding: 14px;
+                gap: 12px;
+            }
+
+            .payment-option i {
+                font-size: 1.25rem;
+                width: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-content {
+                margin: 16px;
+                padding: 32px 24px;
+            }
+
+            .success-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">🍕<span>Zee<span style="color:black">Fast</span></span></a>
+            <div class="navbar-nav">
+                <a href="cart.html" class="nav-link"><i class="fas fa-arrow-left"></i><span>Back to Cart</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-wrapper">
+        <div class="payment-page">
+            <h1 style="margin-bottom:24px;">Payment</h1>
+
+            <div class="order-summary" id="order-summary"></div>
+
+            <div class="payment-options">
+                <h3 style="margin-bottom:16px;">Select Payment Method</h3>
+                <div class="payment-option selected" data-method="UPI" onclick="selectPayment(this)">
+                    <i class="fab fa-google-pay" style="color:#4285F4;"></i>
+                    <div><strong>UPI</strong>
+                        <div class="text-sm text-muted">Google Pay, PhonePe, Paytm</div>
+                    </div>
+                    <span class="radio"></span>
+                </div>
+                <div class="payment-option" data-method="Card" onclick="selectPayment(this)">
+                    <i class="fas fa-credit-card" style="color:#1a1a2e;"></i>
+                    <div><strong>Credit / Debit Card</strong>
+                        <div class="text-sm text-muted">Visa, Mastercard, RuPay</div>
+                    </div>
+                    <span class="radio"></span>
+                </div>
+                <div class="payment-option" data-method="COD" onclick="selectPayment(this)">
+                    <i class="fas fa-money-bill-wave" style="color:#2ecc71;"></i>
+                    <div><strong>Cash on Delivery</strong>
+                        <div class="text-sm text-muted">Pay when your order arrives</div>
+                    </div>
+                    <span class="radio"></span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block" id="pay-btn" onclick="processPayment()">
+                <span id="pay-text">Place Order • ₹0</span>
+            </button>
+        </div>
+    </main>
+
+    <div class="success-modal" id="success-modal">
+        <div class="success-content">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h2 style="margin-bottom:8px;">Order Placed!</h2>
+            <p class="text-muted" style="margin-bottom:24px;">Your food is being prepared and will arrive soon.</p>
+            <a href="/orders.html" class="btn btn-primary btn-block">View Orders</a>
+            <a href="/" class="btn btn-secondary btn-block" style="margin-top:12px;">Continue Shopping</a>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/mockData.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        let selectedMethod = 'UPI';
+        let orderTotal = 0;
+
+        async function loadSummary() {
+            const cart = await CartModule.getCart();
+            if (!cart.items?.length) { location.href = '/cart.html'; return; }
+
+            const totals = CartModule.calculateTotals(cart.items, cart.deliveryFee || 30);
+            orderTotal = totals.total;
+
+            document.getElementById('order-summary').innerHTML = `
+                <h3 style="margin-bottom:16px;">Order Summary</h3>
+                <div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color);">
+                    ${cart.items.map(i => `<div class="flex-between" style="margin-bottom:8px;"><span>${i.name} × ${i.quantity}</span><span>₹${i.price * i.quantity}</span></div>`).join('')}
+                </div>
+                <div class="flex-between text-sm" style="margin-bottom:8px;"><span>Subtotal</span><span>₹${totals.subtotal}</span></div>
+                <div class="flex-between text-sm" style="margin-bottom:8px;"><span>Delivery</span><span>₹${totals.deliveryFee}</span></div>
+                <div class="flex-between text-sm" style="margin-bottom:12px;"><span>Taxes</span><span>₹${totals.taxes}</span></div>
+                <div class="flex-between font-bold" style="font-size:1.125rem;"><span>Total</span><span>₹${totals.total}</span></div>
+            `;
+            document.getElementById('pay-text').textContent = `Place Order • ₹${totals.total}`;
+        }
+
+        function selectPayment(el) {
+            document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedMethod = el.dataset.method;
+        }
+
+        async function processPayment() {
+            if (!AuthModule.isLoggedIn()) {
+                showToast('Please login to place order', 'error');
+                location.href = '/login.html';
+                return;
+            }
+
+            const btn = document.getElementById('pay-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
+
+            try {
+                await API.Orders.create({ paymentMethod: selectedMethod });
+                document.getElementById('success-modal').classList.add('active');
+            } catch (e) {
+                showToast(e.message || 'Payment failed', 'error');
+                btn.disabled = false;
+                btn.innerHTML = `<span id="pay-text">Try Again • ₹${orderTotal}</span>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadSummary);
+    </script>
+</body>
+
+</html>

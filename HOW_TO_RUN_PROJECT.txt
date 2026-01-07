@@ -1,0 +1,163 @@
+# ZeeFast Project - Setup & Run Guide
+# =====================================
+
+## Project Overview
+ZeeFast is a food delivery web application with:
+- Frontend: Static HTML/CSS/JS files
+- Backend: Node.js/Express API server
+
+## Project Structure
+```
+D:\project1\
+├── frontend\              # Frontend files (HTML, CSS, JS)
+│   ├── index.html         # Home page
+│   ├── restaurants.html   # Restaurant listing
+│   ├── menu.html          # Restaurant menu page
+│   ├── cart.html          # Shopping cart
+│   ├── login.html         # Login/Register
+│   ├── profile.html       # User profile
+│   ├── orders.html        # Order history
+│   ├── payment.html       # Payment page
+│   ├── contactus.html     # Contact page
+│   ├── recommendations.html # Services page
+│   ├── css\               # Stylesheets
+│   ├── js\                # JavaScript files
+│   └── images\            # Image assets
+│
+└── backend\               # Backend API server
+    ├── server.js          # Main server file
+    ├── package.json       # Node.js dependencies
+    ├── controllers\       # API controllers
+    ├── routes\            # API routes
+    └── data\              # JSON data files
+        └── restaurants.json  # Restaurant data
+```
+
+=====================================
+## HOW TO RUN THE PROJECT
+=====================================
+
+### STEP 1: Install Node.js (if not installed)
+Download and install Node.js from: https://nodejs.org/
+
+### STEP 2: Open Terminal/Command Prompt
+Open PowerShell or Command Prompt
+
+### STEP 3: Start Backend Server
+```
+cd D:\project1\backend
+npm install          # (only first time)
+npm start
+```
+Backend will run at: http://localhost:3000
+
+### STEP 4: Start Frontend Server (New Terminal)
+Open a NEW terminal window and run:
+```
+cd D:\project1\frontend
+npx -y live-server --port=8080
+```
+Frontend will run at: http://localhost:8080
+(Browser will open automatically)
+
+NOTE: If port 8080 is busy, live-server will use another port.
+Check the terminal output for the actual URL like:
+"Serving at http://127.0.0.1:54260"
+
+### STEP 5: Open in Browser
+Navigate to: http://localhost:8080
+
+=====================================
+## QUICK COMMANDS CHEAT SHEET
+=====================================
+
+| Task                  | Command                                      | Location             |
+|-----------------------|----------------------------------------------|----------------------|
+| Start Backend         | npm start                                    | D:\project1\backend  |
+| Start Frontend        | npx -y live-server --port=8080               | D:\project1\frontend |
+| Open Browser          | start http://localhost:8080                  | Any terminal         |
+| Stop Server           | Ctrl+C                                       | In terminal          |
+
+=====================================
+## AVAILABLE PAGES
+=====================================
+
+| Page         | URL                                          |
+|--------------|----------------------------------------------|
+| Home         | http://localhost:8080/index.html             |
+| Restaurants  | http://localhost:8080/restaurants.html       |
+| Menu         | http://localhost:8080/menu.html?id=1         |
+| Cart         | http://localhost:8080/cart.html              |
+| Login        | http://localhost:8080/login.html             |
+| Profile      | http://localhost:8080/profile.html           |
+| Orders       | http://localhost:8080/orders.html            |
+| Contact      | http://localhost:8080/contactus.html         |
+| Services     | http://localhost:8080/recommendations.html   |
+
+=====================================
+## RESTAURANT IDs FOR MENU PAGE
+=====================================
+
+To view a restaurant's menu, use: menu.html?id=<number>
+
+| ID | Restaurant Name    | URL                                          |
+|----|--------------------|----------------------------------------------|
+| 1  | Biryani Palace     | http://localhost:8080/menu.html?id=1         |
+| 2  | Pizza Paradise     | http://localhost:8080/menu.html?id=2         |
+| 3  | Burger Kingdom     | http://localhost:8080/menu.html?id=3         |
+| 4  | Dragon Wok         | http://localhost:8080/menu.html?id=4         |
+| 5  | Sweet Delights     | http://localhost:8080/menu.html?id=5         |
+| 6  | Dosa House         | http://localhost:8080/menu.html?id=6         |
+| 7  | Tandoor Express    | http://localhost:8080/menu.html?id=7         |
+| 8  | Pasta Point        | http://localhost:8080/menu.html?id=8         |
+
+=====================================
+## TROUBLESHOOTING
+=====================================
+
+### Port Already in Use
+If port 8080 is busy, use a different port:
+```
+npx -y live-server --port=3001
+```
+
+### Backend Not Starting
+1. Make sure you're in the backend folder
+2. Run: npm install
+3. Then run: npm start
+
+### Changes Not Reflecting
+- With live-server, changes auto-refresh
+- If not, clear browser cache (Ctrl+Shift+R)
+
+### 404 Error on Menu Page
+Make sure to use .html extension:
+- CORRECT: menu.html?id=1
+- WRONG: menu?id=1
+
+=====================================
+## STOPPING THE SERVERS
+=====================================
+
+1. Go to the terminal running the server
+2. Press Ctrl+C to stop it
+3. Repeat for both backend and frontend terminals
+
+=====================================
+## TIPS
+=====================================
+
+1. Always start BACKEND first, then FRONTEND
+2. Use live-server for auto-refresh on file changes
+3. Check browser console (F12) for any errors
+4. Restaurant data is in: backend\data\restaurants.json
+5. Mock data for frontend: frontend\js\mockData.js
+
+=====================================
+## CONTACT
+=====================================
+
+For issues, check the browser console (F12 > Console tab)
+and the terminal for error messages.
+
+Happy coding! 🍕

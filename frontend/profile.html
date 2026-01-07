@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ZeeFast</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .profile-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .profile-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .profile-section h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .address-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .address-card.default {
+            border-color: var(--primary);
+            background: #fff9f5;
+        }
+
+        .address-type {
+            display: inline-block;
+            background: var(--gray-100);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pref-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pref-chip {
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pref-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .quick-links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .quick-links a:last-child {
+            border-bottom: none;
+        }
+
+        .quick-links a i {
+            width: 24px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .profile-page {
+                padding: 24px 16px;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .profile-avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .profile-section {
+                padding: 16px;
+                border-radius: 12px;
+            }
+
+            .pref-chips {
+                justify-content: center;
+            }
+
+            .pref-chip {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .address-card {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-header h1 {
+                font-size: 1.25rem;
+            }
+
+            .quick-links a {
+                padding: 14px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">🍕<span>Zee<span style="color:black">Fast</span></span></a>
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="orders.html" class="nav-link"><i class="fas fa-receipt"></i><span>Orders</span></a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i><span class="badge cart-badge"
+                        style="display:none">0</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-wrapper">
+        <div class="profile-page" id="content"></div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/mockData.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        const cuisineOptions = ['Indian', 'Chinese', 'Italian', 'Mexican', 'Thai', 'Japanese', 'South Indian', 'Fast Food'];
+
+        async function loadProfile() {
+            if (!AuthModule.isLoggedIn()) { location.href = '/login.html'; return; }
+
+            const user = AuthModule.getUser();
+            const container = document.getElementById('content');
+
+            container.innerHTML = `
+                <div class="profile-header">
+                    <img src="${user.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=user'}" alt="${user.name}" class="profile-avatar">
+                    <div>
+                        <h1>${user.name}</h1>
+                        <p class="text-muted">${user.email}</p>
+                        <p class="text-muted">${user.phone || 'No phone added'}</p>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Saved Addresses</h3>
+                    <div id="addresses">
+                        ${user.addresses?.length ? user.addresses.map(a => `
+                            <div class="address-card ${a.isDefault ? 'default' : ''}">
+                                <span class="address-type">${a.type}</span>
+                                ${a.isDefault ? '<span class="address-type" style="background:var(--primary);color:white;">Default</span>' : ''}
+                                <p>${a.address}</p>
+                                <p class="text-muted">${a.city} - ${a.pincode}</p>
+                            </div>
+                        `).join('') : '<p class="text-muted">No addresses saved</p>'}
+                    </div>
+                    <button class="btn btn-outline btn-sm" style="margin-top:12px;" onclick="addAddress()"><i class="fas fa-plus"></i> Add Address</button>
+                </div>
+                
+                <div class="profile-section">
+                    <h3><i class="fas fa-heart"></i> Food Preferences (for AI)</h3>
+                    <div class="pref-chips" id="preferences">
+                        ${cuisineOptions.map(c => `
+                            <span class="pref-chip ${user.preferences?.cuisines?.includes(c) ? 'active' : ''}" onclick="togglePref(this, '${c}')">${c}</span>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="profile-section quick-links">
+                    <a href="/orders.html"><i class="fas fa-receipt"></i><span>Order History</span><i class="fas fa-chevron-right" style="margin-left:auto;"></i></a>
+                    <a href="/recommendations.html"><i class="fas fa-magic"></i><span>AI Recommendations</span><i class="fas fa-chevron-right" style="margin-left:auto;"></i></a>
+                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt" style="color:var(--error);"></i><span style="color:var(--error);">Logout</span></a>
+                </div>
+            `;
+        }
+
+        async function togglePref(el, cuisine) {
+            el.classList.toggle('active');
+            const active = [...document.querySelectorAll('.pref-chip.active')].map(c => c.textContent);
+            try {
+                await API.Auth.updateProfile({ preferences: { cuisines: active } });
+                const user = AuthModule.getUser();
+                user.preferences = user.preferences || {};
+                user.preferences.cuisines = active;
+                localStorage.setItem('zeefast_user', JSON.stringify(user));
+                showToast('Preferences updated!', 'success');
+            } catch (e) { showToast('Failed to update', 'error'); }
+        }
+
+        function addAddress() {
+            const address = prompt('Enter your address:');
+            if (!address) return;
+            const city = prompt('City:') || 'Unknown';
+            const pincode = prompt('Pincode:') || '000000';
+            API.Auth.addAddress({ type: 'Home', address, city, pincode, isDefault: false })
+                .then(() => { showToast('Address added!', 'success'); loadProfile(); })
+                .catch(() => showToast('Failed to add', 'error'));
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) AuthModule.logout();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProfile);
+    </script>
+</body>
+
+</html>

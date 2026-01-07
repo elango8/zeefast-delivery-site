@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - ZeeFast</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+
+        /* Restaurant Header */
+        .restaurant-hero {
+            position: relative;
+            height: 350px;
+            margin-top: 70px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+        .restaurant-hero img {
+            width: 40%;
+            height: 40%;
+            object-fit: cover;
+        }
+
+        .restaurant-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.85));
+        }
+
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+            color: white;
+            z-index: 2;
+        }
+
+        .hero-content .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .restaurant-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .restaurant-logo {
+            height: 100%;
+            width: 50px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .restaurant-details {
+            flex: 1;
+        }
+
+        .restaurant-details h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+
+        .restaurant-meta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .restaurant-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Offers Strip */
+        .offers-strip {
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            padding: 15px 20px;
+        }
+
+        .offers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+        }
+
+        .offer-chip {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Menu Section */
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-count {
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Food Card */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .food-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .food-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .food-card:hover .food-image img {
+            transform: scale(1.1);
+        }
+
+        .food-badges {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .food-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .food-badge.veg {
+            background: #27ae60;
+            color: white;
+        }
+
+        .food-badge.non-veg {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .food-badge.bestseller {
+            background: #f1c40f;
+            color: #1a1a2e;
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .favorite-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .favorite-btn i {
+            color: #ddd;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .favorite-btn.active i {
+            color: #e74c3c;
+        }
+
+        .food-content {
+            padding: 20px;
+        }
+
+        .food-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .food-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .food-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fc8019;
+        }
+
+        .food-price .original {
+            font-size: 0.85rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .food-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .food-rating .stars {
+            color: #f1c40f;
+        }
+
+        .food-rating .count {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .food-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .food-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-cart {
+            flex: 1;
+            padding: 14px;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(252, 128, 25, 0.4);
+        }
+
+        .btn-buy {
+            padding: 14px 25px;
+            background: #1a1a2e;
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-buy:hover {
+            background: #2d2d4a;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1a1a2e;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.success {
+            background: #27ae60;
+        }
+
+        /* Floating Cart Button */
+        .floating-cart {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(252, 128, 25, 0.4);
+            text-decoration: none;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .floating-cart:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-cart .count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .restaurant-hero {
+                height: 320px;
+            }
+
+            .restaurant-logo {
+                width: 90px;
+                height: 90px;
+                min-width: 90px;
+            }
+
+            .restaurant-details h1 {
+                font-size: 1.75rem;
+            }
+
+            .restaurant-meta {
+                gap: 10px;
+            }
+
+            .restaurant-meta span {
+                padding: 5px 10px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .restaurant-hero {
+                height: 300px;
+                margin-top: 60px;
+            }
+
+            .hero-content {
+                padding: 20px 15px;
+            }
+
+            .restaurant-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .restaurant-logo {
+                width: 80px;
+                height: 80px;
+                min-width: 80px;
+                border-width: 3px;
+            }
+
+            .restaurant-details h1 {
+                font-size: 1.4rem;
+            }
+
+            .restaurant-meta {
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .restaurant-meta span {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .restaurant-hero {
+                height: 280px;
+                min-height: 240px;
+            }
+
+            .hero-content {
+                padding: 16px 12px;
+            }
+
+            .restaurant-info {
+                gap: 12px;
+            }
+
+            .restaurant-logo {
+                width: 70px;
+                height: 70px;
+                min-width: 70px;
+                border-radius: 16px;
+            }
+
+            .restaurant-details h1 {
+                font-size: 1.25rem;
+                margin-bottom: 8px;
+            }
+
+            .restaurant-meta {
+                gap: 6px;
+            }
+
+            .restaurant-meta span {
+                padding: 4px 8px;
+                font-size: 0.75rem;
+                gap: 4px;
+            }
+
+            .offers-strip {
+                padding: 12px 15px;
+            }
+
+            .offer-chip {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+
+            .menu-container {
+                padding: 25px 15px;
+            }
+
+            .category-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar"
+        style="position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.1);">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">🍕<span style="color:#fc8019">Zee</span><span
+                    style="color:#1a1a2e">Fast</span></a>
+            <div class="navbar-nav">
+                <a href="restaurants.html" class="nav-link"><i class="fas fa-arrow-left"></i><span>Back</span></a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i><span>Cart</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="restaurant-hero" id="hero">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200" alt="Restaurant">
+        <div class="hero-content">
+            <div class="container">
+                <div class="restaurant-info" id="restaurant-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offers-strip" id="offers-strip" style="display:none;">
+        <div class="offers-container" id="offers"></div>
+    </div>
+
+    <main class="menu-container" id="menu"></main>
+
+    <a href="cart.html" class="floating-cart" id="floating-cart" style="display:none;">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="count" id="cart-count">0</span>
+    </a>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/mockData.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        let currentRestaurantId = null;
+        let currentRestaurant = null;
+
+        function getUrlParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+            toast.className = 'toast show ' + type;
+            setTimeout(() => {
+                toast.className = 'toast';
+            }, 3000);
+        }
+
+        function updateFloatingCart() {
+            const cart = CartModule.getLocal();
+            const count = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+            const floatingCart = document.getElementById('floating-cart');
+            const countEl = document.getElementById('cart-count');
+
+            if (count > 0) {
+                floatingCart.style.display = 'flex';
+                countEl.textContent = count;
+            } else {
+                floatingCart.style.display = 'none';
+            }
+        }
+
+        function addToCart(itemId) {
+            // Find item in mock data
+            const allItems = Object.values(MockData.menuItems).flat();
+            const item = allItems.find(i => i.id === itemId);
+
+            if (item) {
+                const cart = CartModule.getLocal();
+
+                // Check if from different restaurant
+                if (cart.restaurantId && cart.restaurantId !== currentRestaurantId && cart.items.length > 0) {
+                    if (!confirm('Your cart has items from another restaurant. Clear cart and add this item?')) {
+                        return;
+                    }
+                    CartModule.clearLocal();
+                }
+
+                // Add item
+                const existing = cart.items.find(i => i.itemId === itemId);
+                if (existing) {
+                    existing.quantity++;
+                } else {
+                    cart.items.push({
+                        itemId: item.id,
+                        name: item.name,
+                        price: item.price,
+                        image: item.image,
+                        isVeg: item.isVeg,
+                        quantity: 1
+                    });
+                }
+                cart.restaurantId = currentRestaurantId;
+                CartModule.saveLocal(cart);
+
+                showToast(`${item.name} added to cart!`, 'success');
+                updateFloatingCart();
+            }
+        }
+
+        function buyNow(itemId) {
+            addToCart(itemId);
+            setTimeout(() => {
+                window.location.href = 'payment.html';
+            }, 500);
+        }
+
+        function toggleFavorite(btn) {
+            btn.classList.toggle('active');
+            const icon = btn.querySelector('i');
+            icon.className = btn.classList.contains('active') ? 'fas fa-heart' : 'far fa-heart';
+        }
+
+        async function loadMenu() {
+            currentRestaurantId = getUrlParam('id');
+
+            if (!currentRestaurantId) {
+                window.location.href = 'restaurants.html';
+                return;
+            }
+
+            // Get restaurant and menu from mock data
+            const data = MockData.getMenu(currentRestaurantId);
+            const restaurant = data.restaurant;
+            const groupedMenu = data.groupedMenu;
+
+            if (!restaurant) {
+                window.location.href = 'restaurants.html';
+                return;
+            }
+
+            currentRestaurant = restaurant;
+            document.title = `${restaurant.name} - ZeeFast`;
+
+            // Update hero
+            document.querySelector('.restaurant-hero')
+                .style.backgroundImage = `url(${restaurant.coverImage})`;
+
+
+            document.getElementById('restaurant-info').innerHTML = `
+                <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-logo">
+                <div class="restaurant-details">
+                    <h1>${restaurant.name}</h1>
+                    <div class="restaurant-meta">
+                        <span><i class="fas fa-star"></i> ${restaurant.rating} (${restaurant.ratingCount}+ ratings)</span>
+                        <span><i class="fas fa-clock"></i> ${restaurant.deliveryTime}</span>
+                        <span><i class="fas fa-motorcycle"></i> ₹${restaurant.deliveryFee} delivery</span>
+                    </div>
+                </div>
+            `;
+
+            // Update offers
+            if (restaurant.offers && restaurant.offers.length > 0) {
+                document.getElementById('offers-strip').style.display = 'block';
+                document.getElementById('offers').innerHTML = restaurant.offers.map(offer =>
+                    `<div class="offer-chip"><i class="fas fa-tag"></i> ${offer}</div>`
+                ).join('');
+            }
+
+            // Render menu
+            document.getElementById('menu').innerHTML = groupedMenu.map(section => `
+                <section class="category-section">
+                    <div class="category-header">
+                        <h2 class="category-title"><i class="fas fa-utensils" style="color:#fc8019"></i> ${section.category}</h2>
+                        <span class="category-count">${section.items.length} items</span>
+                    </div>
+                    <div class="food-grid">
+                        ${section.items.map(item => `
+                            <div class="food-card">
+                                <div class="food-image">
+                                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400'">
+                                    <div class="food-badges">
+                                        <span class="food-badge ${item.isVeg ? 'veg' : 'non-veg'}">${item.isVeg ? '🌿 Veg' : '🍖 Non-Veg'}</span>
+                                        ${item.isBestseller ? '<span class="food-badge bestseller">⭐ Bestseller</span>' : ''}
+                                    </div>
+                                    <div class="favorite-btn" onclick="toggleFavorite(this)">
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="food-content">
+                                    <div class="food-header">
+                                        <h3 class="food-name">${item.name}</h3>
+                                        <div class="food-price">
+                                            ₹${item.price}
+                                            ${item.originalPrice ? `<span class="original">₹${item.originalPrice}</span>` : ''}
+                                        </div>
+                                    </div>
+                                    <div class="food-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="count">4.${Math.floor(Math.random() * 5) + 5} (${Math.floor(Math.random() * 100) + 20})</span>
+                                    </div>
+                                    <p class="food-desc">${item.description || 'Delicious dish made with fresh ingredients and authentic spices.'}</p>
+                                    <div class="food-actions">
+                                        <button class="btn-cart" onclick="addToCart('${item.id}')">
+                                            <i class="fas fa-cart-plus"></i> Add to Cart
+                                        </button>
+                                        <button class="btn-buy" onclick="buyNow('${item.id}')">Buy Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            `).join('');
+
+            updateFloatingCart();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadMenu);
+    </script>
+</body>
+
+</html>

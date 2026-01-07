@@ -1,0 +1,666 @@
+{
+    "menuItems": [
+        {
+            "id": "item1",
+            "restaurantId": "rest1",
+            "name": "Hyderabadi Dum Biryani",
+            "description": "Aromatic basmati rice layered with tender meat and traditional spices",
+            "price": 299,
+            "originalPrice": 349,
+            "category": "Biryani",
+            "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": true,
+            "rating": 4.6,
+            "orderCount": 1250,
+            "tags": [
+                "Bestseller",
+                "Must Try"
+            ]
+        },
+        {
+            "id": "item2",
+            "restaurantId": "rest1",
+            "name": "Chicken Biryani",
+            "description": "Classic chicken biryani with fragrant rice and juicy chicken pieces",
+            "price": 249,
+            "category": "Biryani",
+            "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": true,
+            "rating": 4.5,
+            "orderCount": 980,
+            "tags": [
+                "Popular"
+            ]
+        },
+        {
+            "id": "item3",
+            "restaurantId": "rest1",
+            "name": "Veg Biryani",
+            "description": "Flavorful vegetable biryani with mixed vegetables and aromatic spices",
+            "price": 199,
+            "category": "Biryani",
+            "image": "https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.3,
+            "orderCount": 650,
+            "tags": [
+                "Veg"
+            ]
+        },
+        {
+            "id": "item4",
+            "restaurantId": "rest1",
+            "name": "Mutton Seekh Kebab",
+            "description": "Succulent minced mutton kebabs with herbs and spices",
+            "price": 349,
+            "category": "Starters",
+            "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=300",
+            "isVeg": false,
+            "isBestseller": false,
+            "isSpicy": true,
+            "rating": 4.4,
+            "orderCount": 420,
+            "tags": [
+                "Spicy"
+            ]
+        },
+        {
+            "id": "item5",
+            "restaurantId": "rest1",
+            "name": "Raita",
+            "description": "Cool yogurt with cucumber and mint",
+            "price": 49,
+            "category": "Sides",
+            "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.2,
+            "orderCount": 890,
+            "tags": []
+        },
+        {
+            "id": "item6",
+            "restaurantId": "rest2",
+            "name": "Margherita Pizza",
+            "description": "Classic pizza with fresh tomatoes, mozzarella, and basil",
+            "price": 299,
+            "category": "Pizza",
+            "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.5,
+            "orderCount": 1100,
+            "tags": [
+                "Bestseller",
+                "Classic"
+            ]
+        },
+        {
+            "id": "item7",
+            "restaurantId": "rest2",
+            "name": "Pepperoni Pizza",
+            "description": "Loaded with pepperoni slices and extra cheese",
+            "price": 399,
+            "category": "Pizza",
+            "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.6,
+            "orderCount": 950,
+            "tags": [
+                "Popular",
+                "Cheesy"
+            ]
+        },
+        {
+            "id": "item8",
+            "restaurantId": "rest2",
+            "name": "BBQ Chicken Pizza",
+            "description": "Smoky BBQ sauce with grilled chicken and onions",
+            "price": 449,
+            "category": "Pizza",
+            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300",
+            "isVeg": false,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.4,
+            "orderCount": 720,
+            "tags": [
+                "BBQ"
+            ]
+        },
+        {
+            "id": "item9",
+            "restaurantId": "rest2",
+            "name": "Garlic Bread",
+            "description": "Crispy bread with garlic butter and herbs",
+            "price": 129,
+            "category": "Sides",
+            "image": "https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.3,
+            "orderCount": 1500,
+            "tags": []
+        },
+        {
+            "id": "item10",
+            "restaurantId": "rest2",
+            "name": "Pasta Alfredo",
+            "description": "Creamy white sauce pasta with mushrooms",
+            "price": 249,
+            "category": "Pasta",
+            "image": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.2,
+            "orderCount": 580,
+            "tags": [
+                "Creamy"
+            ]
+        },
+        {
+            "id": "item11",
+            "restaurantId": "rest3",
+            "name": "Chicken Manchurian",
+            "description": "Crispy chicken in tangy Manchurian sauce",
+            "price": 279,
+            "category": "Main Course",
+            "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": true,
+            "rating": 4.5,
+            "orderCount": 890,
+            "tags": [
+                "Bestseller",
+                "Spicy"
+            ]
+        },
+        {
+            "id": "item12",
+            "restaurantId": "rest3",
+            "name": "Veg Hakka Noodles",
+            "description": "Stir-fried noodles with vegetables in Indo-Chinese style",
+            "price": 199,
+            "category": "Noodles",
+            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.3,
+            "orderCount": 1200,
+            "tags": [
+                "Popular"
+            ]
+        },
+        {
+            "id": "item13",
+            "restaurantId": "rest3",
+            "name": "Spring Rolls",
+            "description": "Crispy rolls stuffed with vegetables",
+            "price": 149,
+            "category": "Starters",
+            "image": "https://images.unsplash.com/photo-1548507200-e587ab2ae4b2?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.1,
+            "orderCount": 650,
+            "tags": [
+                "Crispy"
+            ]
+        },
+        {
+            "id": "item14",
+            "restaurantId": "rest3",
+            "name": "Schezwan Fried Rice",
+            "description": "Spicy fried rice with Schezwan sauce",
+            "price": 229,
+            "category": "Rice",
+            "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": true,
+            "rating": 4.2,
+            "orderCount": 780,
+            "tags": [
+                "Spicy"
+            ]
+        },
+        {
+            "id": "item15",
+            "restaurantId": "rest4",
+            "name": "Masala Dosa",
+            "description": "Crispy dosa with spiced potato filling, served with sambar and chutneys",
+            "price": 129,
+            "category": "Dosa",
+            "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.7,
+            "orderCount": 2100,
+            "tags": [
+                "Bestseller",
+                "Healthy"
+            ]
+        },
+        {
+            "id": "item16",
+            "restaurantId": "rest4",
+            "name": "Idli Sambar",
+            "description": "Soft steamed idlis with hot sambar and chutneys",
+            "price": 89,
+            "category": "Breakfast",
+            "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.5,
+            "orderCount": 1800,
+            "tags": [
+                "Healthy",
+                "Light"
+            ]
+        },
+        {
+            "id": "item17",
+            "restaurantId": "rest4",
+            "name": "Vada",
+            "description": "Crispy lentil fritters served with sambar and chutneys",
+            "price": 79,
+            "category": "Snacks",
+            "image": "https://images.unsplash.com/photo-1630383249896-483cc28d27b0?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.3,
+            "orderCount": 980,
+            "tags": [
+                "Crispy"
+            ]
+        },
+        {
+            "id": "item18",
+            "restaurantId": "rest4",
+            "name": "Filter Coffee",
+            "description": "Traditional South Indian filter coffee",
+            "price": 49,
+            "category": "Beverages",
+            "image": "https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.8,
+            "orderCount": 3200,
+            "tags": [
+                "Must Have"
+            ]
+        },
+        {
+            "id": "item19",
+            "restaurantId": "rest5",
+            "name": "Classic Cheese Burger",
+            "description": "Juicy patty with melted cheese, lettuce, and special sauce",
+            "price": 179,
+            "category": "Burgers",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.4,
+            "orderCount": 650,
+            "tags": [
+                "Bestseller"
+            ]
+        },
+        {
+            "id": "item20",
+            "restaurantId": "rest5",
+            "name": "Crispy Chicken Burger",
+            "description": "Crispy fried chicken with mayo and fresh veggies",
+            "price": 199,
+            "category": "Burgers",
+            "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.5,
+            "orderCount": 720,
+            "tags": [
+                "Popular",
+                "Crispy"
+            ]
+        },
+        {
+            "id": "item21",
+            "restaurantId": "rest5",
+            "name": "French Fries",
+            "description": "Crispy golden fries with seasoning",
+            "price": 99,
+            "category": "Sides",
+            "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.2,
+            "orderCount": 1100,
+            "tags": []
+        },
+        {
+            "id": "item22",
+            "restaurantId": "rest6",
+            "name": "Chocolate Brownie",
+            "description": "Rich chocolate brownie with nuts, served warm",
+            "price": 149,
+            "category": "Desserts",
+            "image": "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.7,
+            "orderCount": 980,
+            "tags": [
+                "Bestseller",
+                "Indulgent"
+            ]
+        },
+        {
+            "id": "item23",
+            "restaurantId": "rest6",
+            "name": "Gulab Jamun",
+            "description": "Soft milk dumplings soaked in rose-flavored sugar syrup",
+            "price": 99,
+            "category": "Indian Sweets",
+            "image": "https://images.unsplash.com/photo-1666190096117-59c65f095a99?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.6,
+            "orderCount": 1500,
+            "tags": [
+                "Classic",
+                "Sweet"
+            ]
+        },
+        {
+            "id": "item24",
+            "restaurantId": "rest6",
+            "name": "Ice Cream Sundae",
+            "description": "Vanilla ice cream with chocolate sauce, nuts, and cherry",
+            "price": 179,
+            "category": "Ice Cream",
+            "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.4,
+            "orderCount": 650,
+            "tags": [
+                "Cool",
+                "Refreshing"
+            ]
+        },
+        {
+            "id": "item25",
+            "restaurantId": "rest7",
+            "name": "Butter Chicken",
+            "description": "Tender chicken in creamy tomato-based gravy",
+            "price": 349,
+            "category": "Main Course",
+            "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.7,
+            "orderCount": 1400,
+            "tags": [
+                "Bestseller",
+                "Creamy"
+            ]
+        },
+        {
+            "id": "item26",
+            "restaurantId": "rest7",
+            "name": "Paneer Tikka",
+            "description": "Marinated cottage cheese grilled to perfection",
+            "price": 279,
+            "category": "Starters",
+            "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": true,
+            "rating": 4.5,
+            "orderCount": 890,
+            "tags": [
+                "Popular",
+                "Tandoor"
+            ]
+        },
+        {
+            "id": "item27",
+            "restaurantId": "rest7",
+            "name": "Dal Makhani",
+            "description": "Slow-cooked black lentils in creamy tomato gravy",
+            "price": 249,
+            "category": "Main Course",
+            "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.6,
+            "orderCount": 1100,
+            "tags": [
+                "Must Try",
+                "Creamy"
+            ]
+        },
+        {
+            "id": "item28",
+            "restaurantId": "rest7",
+            "name": "Butter Naan",
+            "description": "Soft leavened bread with butter",
+            "price": 59,
+            "category": "Breads",
+            "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.4,
+            "orderCount": 2500,
+            "tags": []
+        },
+        {
+            "id": "item29",
+            "restaurantId": "rest8",
+            "name": "Salmon Sushi Roll",
+            "description": "Fresh salmon with avocado and cucumber",
+            "price": 599,
+            "category": "Sushi",
+            "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.6,
+            "orderCount": 450,
+            "tags": [
+                "Premium",
+                "Fresh"
+            ]
+        },
+        {
+            "id": "item30",
+            "restaurantId": "rest8",
+            "name": "Dragon Roll",
+            "description": "Tempura shrimp with eel and avocado topping",
+            "price": 699,
+            "category": "Sushi",
+            "image": "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.7,
+            "orderCount": 380,
+            "tags": [
+                "Chef Special",
+                "Must Try"
+            ]
+        },
+        {
+            "id": "item31",
+            "restaurantId": "rest9",
+            "name": "Samosa",
+            "description": "Crispy pastry filled with spiced potatoes and peas",
+            "price": 30,
+            "category": "Snacks",
+            "image": "https://images.unsplash.com/photo-1601050690117-94f5f8b2f4e6?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": true,
+            "rating": 4.3,
+            "orderCount": 4500,
+            "tags": [
+                "Bestseller",
+                "Street Food"
+            ]
+        },
+        {
+            "id": "item32",
+            "restaurantId": "rest9",
+            "name": "Masala Chai",
+            "description": "Traditional spiced Indian tea",
+            "price": 25,
+            "category": "Beverages",
+            "image": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.5,
+            "orderCount": 6000,
+            "tags": [
+                "Classic",
+                "Must Have"
+            ]
+        },
+        {
+            "id": "item33",
+            "restaurantId": "rest10",
+            "name": "Chicken Tacos",
+            "description": "Soft tortillas with grilled chicken, salsa, and guacamole",
+            "price": 249,
+            "category": "Tacos",
+            "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": true,
+            "rating": 4.4,
+            "orderCount": 720,
+            "tags": [
+                "Bestseller",
+                "Spicy"
+            ]
+        },
+        {
+            "id": "item34",
+            "restaurantId": "rest10",
+            "name": "Nachos Grande",
+            "description": "Crispy nachos with cheese, beans, and jalapeños",
+            "price": 199,
+            "category": "Starters",
+            "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": true,
+            "rating": 4.2,
+            "orderCount": 580,
+            "tags": [
+                "Cheesy",
+                "Spicy"
+            ]
+        },
+        {
+            "id": "item35",
+            "restaurantId": "rest11",
+            "name": "Buddha Bowl",
+            "description": "Quinoa, grilled veggies, hummus, and tahini dressing",
+            "price": 299,
+            "category": "Bowls",
+            "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300",
+            "isVeg": true,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.5,
+            "orderCount": 450,
+            "tags": [
+                "Healthy",
+                "Bestseller"
+            ]
+        },
+        {
+            "id": "item36",
+            "restaurantId": "rest11",
+            "name": "Greek Salad",
+            "description": "Fresh veggies with feta cheese and olive dressing",
+            "price": 199,
+            "category": "Salads",
+            "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=300",
+            "isVeg": true,
+            "isBestseller": false,
+            "isSpicy": false,
+            "rating": 4.3,
+            "orderCount": 320,
+            "tags": [
+                "Light",
+                "Refreshing"
+            ]
+        },
+        {
+            "id": "item37",
+            "restaurantId": "rest12",
+            "name": "Galouti Kebab",
+            "description": "Melt-in-mouth minced meat kebabs from Lucknow",
+            "price": 399,
+            "category": "Kebabs",
+            "image": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": false,
+            "rating": 4.7,
+            "orderCount": 680,
+            "tags": [
+                "Premium",
+                "Bestseller"
+            ]
+        },
+        {
+            "id": "item38",
+            "restaurantId": "rest12",
+            "name": "Tandoori Chicken",
+            "description": "Whole chicken marinated and cooked in tandoor",
+            "price": 449,
+            "category": "Tandoor",
+            "image": "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=300",
+            "isVeg": false,
+            "isBestseller": true,
+            "isSpicy": true,
+            "rating": 4.6,
+            "orderCount": 850,
+            "tags": [
+                "Signature",
+                "Spicy"
+            ]
+        }
+    ]
+}

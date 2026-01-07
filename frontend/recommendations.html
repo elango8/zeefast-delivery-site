@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - ZeeFast</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+
+        /* Hero Section */
+        .services-hero {
+            background: linear-gradient(135deg, #fc8019 0%, #ff6b35 50%, #e55d2b 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .services-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            margin-top: -40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+        }
+
+        .stat-icon.orange {
+            background: #fff5eb;
+            color: #fc8019;
+        }
+
+        .stat-icon.green {
+            background: #e8f5e9;
+            color: #27ae60;
+        }
+
+        .stat-icon.blue {
+            background: #e3f2fd;
+            color: #2196f3;
+        }
+
+        .stat-icon.purple {
+            background: #f3e5f5;
+            color: #9c27b0;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #fc8019, #ff6b35);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #fff5eb, #ffe0c3);
+            color: #fc8019;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(252, 128, 25, 0.4);
+            color: white;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: linear-gradient(135deg, #1a1a2e, #2d2d4a);
+            padding: 80px 20px;
+            margin-top: 40px;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .features-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .features-header p {
+            opacity: 0.7;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: #fc8019;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h4 {
+            color: white;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .feature-item p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            border-radius: 30px;
+            padding: 60px 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '🍕';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            top: -30px;
+            right: -30px;
+        }
+
+        .cta-card h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-card p {
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn {
+            padding: 16px 40px;
+            background: white;
+            color: #fc8019;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            color: #fc8019;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-hero {
+                padding: 60px 20px 50px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-card {
+                padding: 20px 15px;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-card {
+                padding: 40px 25px;
+            }
+
+            .cta-card h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">🍕<span>Zee<span style="color:black">Fast</span></span></a>
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="restaurants.html" class="nav-link"><i class="fas fa-search"></i><span>Menu</span></a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i><span class="badge cart-badge"
+                        style="display:none">0</span></a>
+                <a href="login.html" class="nav-link auth-link"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-wrapper">
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <h1>🚀 Our Services</h1>
+            <p>Experience lightning-fast food delivery with premium quality and unmatched convenience</p>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon orange"><i class="fas fa-utensils"></i></div>
+                    <div class="stat-value">500+</div>
+                    <div class="stat-label">Restaurant Partners</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fas fa-users"></i></div>
+                    <div class="stat-value">50K+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fas fa-motorcycle"></i></div>
+                    <div class="stat-value">2K+</div>
+                    <div class="stat-label">Delivery Partners</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple"><i class="fas fa-clock"></i></div>
+                    <div class="stat-value">25 min</div>
+                    <div class="stat-label">Avg. Delivery Time</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-section">
+            <div class="section-header">
+                <h2>What We Offer</h2>
+                <p>Everything you need for the perfect food experience</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Express Delivery</h3>
+                    <p>Get your food delivered in under 30 minutes with our lightning-fast delivery network.</p>
+                    <a href="restaurants.html" class="service-btn">Order Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Scheduled Orders</h3>
+                    <p>Plan ahead! Schedule your meals for any time that suits your busy lifestyle.</p>
+                    <a href="restaurants.html" class="service-btn">Schedule</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Corporate Catering</h3>
+                    <p>Perfect for meetings and events. Bulk orders with special corporate discounts.</p>
+                    <a href="contactus.html" class="service-btn">Contact Us</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-gift"></i></div>
+                    <h3>Gift a Meal</h3>
+                    <p>Surprise your loved ones with delicious meals delivered to their doorstep.</p>
+                    <a href="restaurants.html" class="service-btn">Send Gift</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-crown"></i></div>
+                    <h3>ZeeFast Premium</h3>
+                    <p>Unlimited free deliveries, exclusive deals, and priority support for members.</p>
+                    <a href="login.html" class="service-btn">Join Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-store"></i></div>
+                    <h3>Partner With Us</h3>
+                    <p>Restaurant owner? Join our platform and reach thousands of hungry customers.</p>
+                    <a href="contactus.html" class="service-btn">Register</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="features-container">
+                <div class="features-header">
+                    <h2>Why Choose ZeeFast?</h2>
+                    <p>We're committed to making your food experience exceptional</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Safe & Hygienic</h4>
+                        <p>Contactless delivery with safety protocols</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Live Tracking</h4>
+                        <p>Track your order in real-time</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-percentage"></i>
+                        <h4>Best Prices</h4>
+                        <p>Daily deals and exclusive offers</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset"></i>
+                        <h4>24/7 Support</h4>
+                        <p>Always here to help you</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-card">
+                <h2>Ready to Order?</h2>
+                <p>Explore hundreds of restaurants and get your favorite food delivered fast!</p>
+                <a href="restaurants.html" class="cta-btn">
+                    <i class="fas fa-utensils"></i> Browse Restaurants
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/mockData.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

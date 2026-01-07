@@ -1,0 +1,70 @@
+{
+    "users": [
+        {
+            "id": "user1",
+            "name": "John Doe",
+            "email": "john@example.com",
+            "password": "password123",
+            "phone": "+91 9876543210",
+            "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=john",
+            "addresses": [
+                {
+                    "id": "addr1",
+                    "type": "Home",
+                    "address": "123 Main Street, Apartment 4B",
+                    "city": "Mumbai",
+                    "pincode": "400001",
+                    "isDefault": true
+                },
+                {
+                    "id": "addr2",
+                    "type": "Work",
+                    "address": "456 Business Park, Tower A",
+                    "city": "Mumbai",
+                    "pincode": "400051",
+                    "isDefault": false
+                }
+            ],
+            "preferences": {
+                "cuisines": [
+                    "Indian",
+                    "Chinese",
+                    "Italian"
+                ],
+                "dietaryRestrictions": [],
+                "spiceLevel": "medium"
+            },
+            "createdAt": "2024-01-15T10:30:00Z"
+        },
+        {
+            "id": "user2",
+            "name": "Priya Sharma",
+            "email": "priya@example.com",
+            "password": "password123",
+            "phone": "+91 9876543211",
+            "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=priya",
+            "addresses": [
+                {
+                    "id": "addr3",
+                    "type": "Home",
+                    "address": "789 Garden View, Block C",
+                    "city": "Delhi",
+                    "pincode": "110001",
+                    "isDefault": true
+                }
+            ],
+            "preferences": {
+                "cuisines": [
+                    "South Indian",
+                    "Thai",
+                    "Mexican"
+                ],
+                "dietaryRestrictions": [
+                    "vegetarian"
+                ],
+                "spiceLevel": "high"
+            },
+            "createdAt": "2024-02-20T14:45:00Z"
+        }
+    ]
+}

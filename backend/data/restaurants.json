@@ -1,0 +1,325 @@
+{
+    "restaurants": [
+        {
+            "id": "rest1",
+            "name": "Biryani Palace",
+            "cuisine": [
+                "Biryani",
+                "North Indian",
+                "Mughlai"
+            ],
+            "rating": 4.5,
+            "ratingCount": 2340,
+            "deliveryTime": "30-35 min",
+            "deliveryFee": 30,
+            "minOrder": 150,
+            "priceRange": "$$",
+            "image": "https://www.victoriabuzz.com/wp-content/uploads/2022/12/Biryani-Palace-scaled-e1672167170593-1920x1347.jpg",
+            "coverImage": "https://www.victoriabuzz.com/wp-content/uploads/2022/12/Biryani-Palace-scaled-e1672167170593-1920x1347.jpg",
+            "address": "Shop 12, Food Street, Mumbai",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "50% off up to ₹100",
+                "Free delivery on orders above ₹299"
+            ],
+            "tags": [
+                "Bestseller",
+                "Top Rated"
+            ]
+        },
+        {
+            "id": "rest2",
+            "name": "Pizza Paradise",
+            "cuisine": [
+                "Pizza",
+                "Italian",
+                "Fast Food"
+            ],
+            "rating": 4.3,
+            "ratingCount": 1890,
+            "deliveryTime": "25-30 min",
+            "deliveryFee": 25,
+            "minOrder": 199,
+            "priceRange": "$$",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/3c/c0/31/paradise-pizza.jpg?w=1200&h=-1&s=1",
+            "coverImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/3c/c0/31/paradise-pizza.jpg?w=1200&h=-1&s=1",
+            "address": "Mall Road, Sector 5, Delhi",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "Buy 1 Get 1 Free on Medium Pizzas"
+            ],
+            "tags": [
+                "Trending"
+            ]
+        },
+        {
+            "id": "rest3",
+            "name": "Dragon Wok",
+            "cuisine": [
+                "Chinese",
+                "Thai",
+                "Asian"
+            ],
+            "rating": 4.2,
+            "ratingCount": 1560,
+            "deliveryTime": "35-40 min",
+            "deliveryFee": 35,
+            "minOrder": 200,
+            "priceRange": "$$$",
+            "image": "https://s3-media0.fl.yelpcdn.com/bphoto/Vd7W5cSZBnzqk-MJs59GDw/l.jpg",
+            "coverImage": "https://s3-media0.fl.yelpcdn.com/bphoto/Vd7W5cSZBnzqk-MJs59GDw/l.jpg",
+            "address": "Chinatown Plaza, Kolkata",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "20% off on first order"
+            ],
+            "tags": [
+                "Popular"
+            ]
+        },
+        {
+            "id": "rest4",
+            "name": "Dosa Delight",
+            "cuisine": [
+                "South Indian",
+                "Breakfast",
+                "Healthy"
+            ],
+            "rating": 4.6,
+            "ratingCount": 3200,
+            "deliveryTime": "20-25 min",
+            "deliveryFee": 20,
+            "minOrder": 100,
+            "priceRange": "$",
+            "image": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill,w_3840,ar_4:3,g_center,f_auto/NYC_DosaDelight_Exteriors_AlexStaniloff-1_oazhwt",
+            "coverImage": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill,w_3840,ar_4:3,g_center,f_auto/NYC_DosaDelight_Exteriors_AlexStaniloff-1_oazhwt",
+            "address": "Anna Nagar, Chennai",
+            "isOpen": true,
+            "isPureVeg": true,
+            "offers": [
+                "Free filter coffee on orders above ₹200"
+            ],
+            "tags": [
+                "Pure Veg",
+                "Bestseller"
+            ]
+        },
+        {
+            "id": "rest5",
+            "name": "Burger Barn",
+            "cuisine": [
+                "Burgers",
+                "American",
+                "Fast Food"
+            ],
+            "rating": 4.1,
+            "ratingCount": 980,
+            "deliveryTime": "20-25 min",
+            "deliveryFee": 25,
+            "minOrder": 149,
+            "priceRange": "$$",
+            "image": "https://media-cdn.tripadvisor.com/media/photo-s/0c/9a/a6/70/photo0jpg.jpg",
+            "coverImage": "https://media-cdn.tripadvisor.com/media/photo-s/0c/9a/a6/70/photo0jpg.jpg",
+            "address": "MG Road, Bangalore",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "Combo meals starting at ₹199"
+            ],
+            "tags": [
+                "Quick Bites"
+            ]
+        },
+        {
+            "id": "rest6",
+            "name": "Sweet Tooth",
+            "cuisine": [
+                "Desserts",
+                "Ice Cream",
+                "Bakery"
+            ],
+            "rating": 4.7,
+            "ratingCount": 2100,
+            "deliveryTime": "25-30 min",
+            "deliveryFee": 30,
+            "minOrder": 150,
+            "priceRange": "$$",
+            "image": "https://th.bing.com/th/id/R.6539c37cc2e4ebbf06b52298657b3e13?rik=V%2f4zG0997qNxSA&riu=http%3a%2f%2fsweettoothcandyshoppe.com%2fuploads%2f1%2f3%2f0%2f0%2f130005242%2fmsh-8073_orig.jpg&ehk=6ainjgkpy%2bjfyduiv4MHMgrs%2bPtJIrWOZ5e3TsuCYvI%3d&risl=&pid=ImgRaw&r=0",
+            "coverImage": "https://th.bing.com/th/id/R.6539c37cc2e4ebbf06b52298657b3e13?rik=V%2f4zG0997qNxSA&riu=http%3a%2f%2fsweettoothcandyshoppe.com%2fuploads%2f1%2f3%2f0%2f0%2f130005242%2fmsh-8073_orig.jpg&ehk=6ainjgkpy%2bjfyduiv4MHMgrs%2bPtJIrWOZ5e3TsuCYvI%3d&risl=&pid=ImgRaw&r=0",
+            "address": "Sweet Lane, Jaipur",
+            "isOpen": true,
+            "isPureVeg": true,
+            "offers": [
+                "Free brownie on orders above ₹300"
+            ],
+            "tags": [
+                "Sweet Cravings",
+                "Top Rated"
+            ]
+        },
+        {
+            "id": "rest7",
+            "name": "Tandoor Express",
+            "cuisine": [
+                "North Indian",
+                "Tandoor",
+                "Mughlai"
+            ],
+            "rating": 4.4,
+            "ratingCount": 1750,
+            "deliveryTime": "35-40 min",
+            "deliveryFee": 35,
+            "minOrder": 250,
+            "priceRange": "$$$",
+            "image": "https://i1.wp.com/lakesandlattes.com/wp-content/uploads/2017/11/IMG_1572-1.jpg?w=1280&ssl=1",
+            "coverImage": "https://i1.wp.com/lakesandlattes.com/wp-content/uploads/2017/11/IMG_1572-1.jpg?w=1280&ssl=1",
+            "address": "Old Delhi, Delhi",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "Flat ₹75 off on orders above ₹500"
+            ],
+            "tags": [
+                "Premium"
+            ]
+        },
+        {
+            "id": "rest8",
+            "name": "Sushi Station",
+            "cuisine": [
+                "Japanese",
+                "Sushi",
+                "Asian"
+            ],
+            "rating": 4.5,
+            "ratingCount": 890,
+            "deliveryTime": "40-45 min",
+            "deliveryFee": 50,
+            "minOrder": 400,
+            "priceRange": "$$$$",
+            "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400",
+            "coverImage": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800",
+            "address": "Bandra West, Mumbai",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "15% off for new customers"
+            ],
+            "tags": [
+                "Premium",
+                "Exotic"
+            ]
+        },
+        {
+            "id": "rest9",
+            "name": "Chai & Snacks",
+            "cuisine": [
+                "Snacks",
+                "Street Food",
+                "Beverages"
+            ],
+            "rating": 4.0,
+            "ratingCount": 3500,
+            "deliveryTime": "15-20 min",
+            "deliveryFee": 15,
+            "minOrder": 80,
+            "priceRange": "$",
+            "image": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400",
+            "coverImage": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=800",
+            "address": "Local Market, Pune",
+            "isOpen": true,
+            "isPureVeg": true,
+            "offers": [
+                "Free chai with every snack combo"
+            ],
+            "tags": [
+                "Budget Friendly",
+                "Quick Bites"
+            ]
+        },
+        {
+            "id": "rest10",
+            "name": "Mexican Fiesta",
+            "cuisine": [
+                "Mexican",
+                "Tex-Mex",
+                "Fast Food"
+            ],
+            "rating": 4.2,
+            "ratingCount": 1200,
+            "deliveryTime": "30-35 min",
+            "deliveryFee": 35,
+            "minOrder": 200,
+            "priceRange": "$$",
+            "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400",
+            "coverImage": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800",
+            "address": "Cyber Hub, Gurgaon",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "Taco Tuesday - Buy 2 Get 1 Free"
+            ],
+            "tags": [
+                "Spicy",
+                "Trending"
+            ]
+        },
+        {
+            "id": "rest11",
+            "name": "Green Bowl",
+            "cuisine": [
+                "Healthy",
+                "Salads",
+                "Bowls"
+            ],
+            "rating": 4.4,
+            "ratingCount": 780,
+            "deliveryTime": "25-30 min",
+            "deliveryFee": 30,
+            "minOrder": 200,
+            "priceRange": "$$",
+            "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400",
+            "coverImage": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800",
+            "address": "Indiranagar, Bangalore",
+            "isOpen": true,
+            "isPureVeg": true,
+            "offers": [
+                "Healthy combo at ₹249"
+            ],
+            "tags": [
+                "Healthy",
+                "Pure Veg"
+            ]
+        },
+        {
+            "id": "rest12",
+            "name": "Kebab Corner",
+            "cuisine": [
+                "Kebabs",
+                "Mughlai",
+                "BBQ"
+            ],
+            "rating": 4.3,
+            "ratingCount": 1650,
+            "deliveryTime": "35-40 min",
+            "deliveryFee": 40,
+            "minOrder": 300,
+            "priceRange": "$$$",
+            "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400",
+            "coverImage": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=800",
+            "address": "Lucknow Road, Lucknow",
+            "isOpen": true,
+            "isPureVeg": false,
+            "offers": [
+                "Family pack at 30% off"
+            ],
+            "tags": [
+                "Non-Veg Special",
+                "Bestseller"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - ZeeFast</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff5eb 100%);
+            min-height: 100vh;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #fc8019 0%, #ff6b35 100%);
+            padding: 100px 20px 50px;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            opacity: 0.9;
+        }
+
+        /* Cart Container */
+        .cart-container {
+            max-width: 1000px;
+            margin: -30px auto 0;
+            padding: 0 20px 150px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Cart Card */
+        .cart-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .cart-card-header {
+            background: linear-gradient(135deg, #1a1a2e, #2d2d4a);
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-card-header h2 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .clear-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            background: #e74c3c;
+        }
+
+        /* Cart Item */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            gap: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .cart-item:hover {
+            background: #fafafa;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .item-name .badge {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+
+        .item-name .veg {
+            background: #e8f5e9;
+            color: #27ae60;
+        }
+
+        .item-name .non-veg {
+            background: #ffebee;
+            color: #e74c3c;
+        }
+
+        .item-price {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .item-total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        /* Quantity Selector */
+        .qty-control {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .qty-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .qty-value {
+            min-width: 40px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Bill Card */
+        .bill-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .bill-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1a1a2e;
+        }
+
+        .bill-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .bill-row.total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 2px dashed #eee;
+        }
+
+        .bill-row .label {
+            color: #666;
+        }
+
+        .bill-row .value {
+            font-weight: 600;
+        }
+
+        .bill-row.discount .value {
+            color: #27ae60;
+        }
+
+        /* Checkout Bar */
+        .checkout-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -5px 40px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            z-index: 100;
+        }
+
+        .checkout-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkout-info h3 {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .checkout-info .total {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .checkout-btn {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(252, 128, 25, 0.4);
+            color: white;
+        }
+
+        /* Empty Cart */
+        .empty-cart {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .empty-icon {
+            font-size: 6rem;
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .empty-cart h2 {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .empty-cart p {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .browse-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #fc8019, #ff6b35);
+            color: white;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .browse-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(252, 128, 25, 0.4);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 20px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .cart-item {
+                flex-wrap: wrap;
+            }
+
+            .item-total {
+                width: 100%;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .checkout-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .checkout-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" style="position:fixed;top:0;left:0;right:0;background:transparent;z-index:1000;">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo" style="color:white;">🍕<span>Zee</span><span>Fast</span></a>
+            <div class="navbar-nav">
+                <a href="restaurants.html" class="nav-link" style="color:white;"><i
+                        class="fas fa-arrow-left"></i><span>Back</span></a>
+                <a href="index.html" class="nav-link" style="color:white;"><i
+                        class="fas fa-home"></i><span>Home</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>🛒 Your Cart</h1>
+        <p>Review your items before checkout</p>
+    </header>
+
+    <div class="cart-container" id="cart-content"></div>
+
+    <div class="checkout-bar" id="checkout-bar" style="display:none;">
+        <div class="checkout-content">
+            <div class="checkout-info">
+                <h3>Total Amount</h3>
+                <div class="total" id="checkout-total">₹0</div>
+            </div>
+            <a href="payment.html" class="checkout-btn">
+                <i class="fas fa-lock"></i> Proceed to Payment
+            </a>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/mockData.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function loadCart() {
+            const container = document.getElementById('cart-content');
+            const checkoutBar = document.getElementById('checkout-bar');
+
+            // Get cart from localStorage
+            const cart = CartModule.getLocal();
+            console.log('Cart loaded:', cart);
+
+            if (!cart.items || cart.items.length === 0) {
+                checkoutBar.style.display = 'none';
+                container.innerHTML = `
+                    <div class="cart-card">
+                        <div class="empty-cart">
+                            <div class="empty-icon"><i class="fas fa-shopping-cart"></i></div>
+                            <h2>Your cart is empty</h2>
+                            <p>Looks like you haven't added anything yet.<br>Start exploring restaurants!</p>
+                            <a href="restaurants.html" class="browse-btn">
+                                <i class="fas fa-utensils"></i> Browse Restaurants
+                            </a>
+                        </div>
+                    </div>`;
+                return;
+            }
+
+            const totals = CartModule.calculateTotals(cart.items, 30);
+
+            container.innerHTML = `
+                <div class="cart-card">
+                    <div class="cart-card-header">
+                        <h2><i class="fas fa-shopping-bag"></i> Cart Items (${cart.items.length})</h2>
+                        <button class="clear-btn" onclick="clearCart()"><i class="fas fa-trash"></i> Clear All</button>
+                    </div>
+                    ${cart.items.map(item => `
+                        <div class="cart-item">
+                            <img src="${item.image || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200'}" alt="${item.name}" class="item-image">
+                            <div class="item-details">
+                                <div class="item-name">
+                                    <span class="badge ${item.isVeg ? 'veg' : 'non-veg'}">${item.isVeg ? '🌿' : '🍖'}</span>
+                                    ${item.name}
+                                </div>
+                                <div class="item-price">₹${item.price} × ${item.quantity}</div>
+                            </div>
+                            <div class="qty-control">
+                                <button class="qty-btn" onclick="updateQty('${item.itemId}', ${item.quantity - 1})">−</button>
+                                <span class="qty-value">${item.quantity}</span>
+                                <button class="qty-btn" onclick="updateQty('${item.itemId}', ${item.quantity + 1})">+</button>
+                            </div>
+                            <div class="item-total">₹${item.price * item.quantity}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="bill-card">
+                    <h3 class="bill-title"><i class="fas fa-receipt" style="color:#fc8019"></i> Bill Summary</h3>
+                    <div class="bill-row">
+                        <span class="label">Item Total</span>
+                        <span class="value">₹${totals.subtotal}</span>
+                    </div>
+                    <div class="bill-row">
+                        <span class="label">Delivery Fee</span>
+                        <span class="value">₹${totals.deliveryFee}</span>
+                    </div>
+                    <div class="bill-row">
+                        <span class="label">Taxes & Charges (5%)</span>
+                        <span class="value">₹${totals.taxes}</span>
+                    </div>
+                    <div class="bill-row total">
+                        <span class="label">To Pay</span>
+                        <span class="value">₹${totals.total}</span>
+                    </div>
+                </div>
+            `;
+
+            checkoutBar.style.display = 'block';
+            document.getElementById('checkout-total').textContent = `₹${totals.total}`;
+        }
+
+        function updateQty(itemId, qty) {
+            CartModule.updateQuantity(itemId, qty);
+            loadCart();
+        }
+
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your cart?')) {
+                CartModule.clearLocal();
+                loadCart();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCart);
+    </script>
+</body>
+
+</html>
