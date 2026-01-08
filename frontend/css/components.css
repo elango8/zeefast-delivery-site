@@ -45,7 +45,7 @@
 }
 
 .navbar-logo span {
-    /* background: linear-gradient(135deg, var(--primary), var(--primary-dark)); */
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

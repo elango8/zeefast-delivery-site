@@ -87,7 +87,7 @@ const MockData = {
         {
             id: '7',
             name: 'Tandoor Express',
-            image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400',
+            image: 'https://tse4.mm.bing.net/th/id/OIP.y69RI_XF4ivbPUR2-TfgawHaFj?rs=1&pid=ImgDetMain&o=7&rm=3',
             coverImage: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600',
             cuisine: ['North Indian', 'Tandoori', 'Kebabs'],
             rating: 4.1,
@@ -100,7 +100,7 @@ const MockData = {
         {
             id: '8',
             name: 'Pasta Point',
-            image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+            image: 'https://tse4.mm.bing.net/th/id/OIP.acJFKbyPHBTHA-zpEWL-aAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3',
             coverImage: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600',
             cuisine: ['Italian', 'Pasta', 'Continental'],
             rating: 4.0,
